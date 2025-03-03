@@ -82,7 +82,7 @@ public class Player {
             return "A Pair";
         }
 
-       
+       //returns high card if theres nothing else
         if(highCardOrNothing()){
              return "High Card";
         }
@@ -95,7 +95,7 @@ public class Player {
         return isStraight() && suitFrequency.contains(5);
     }
    
-    private boolean isStraight() {
+    private boolean isStraight() { //returns true if its 5 consecutive cards
         for (int i = 0; i < allCards.size() - 4; i++) {
             int current = Utility.getRankValue(allCards.get(i).getRank());
             int next1 = Utility.getRankValue(allCards.get(i + 1).getRank());

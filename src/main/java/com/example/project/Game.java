@@ -15,13 +15,13 @@ public class Game{
             int p1High = Math.max(Utility.getRankValue(p1.getHand().get(1).getRank()),Utility.getRankValue(p1.getHand().get(0).getRank())); //variable to store p1 high card
             int p2High = Math.max(Utility.getRankValue(p2.getHand().get(1).getRank()),Utility.getRankValue(p2.getHand().get(0).getRank())); //variable to store p2 high card
             if (p1High>p2High){
-                return "Player 1 wins!";
+                return "Player 1 wins!"; //if p1 high is higher in the tie situation p1 wins
             }
             else if (p1High<p2High){
-                return "Player 2 wins!";
+                return "Player 2 wins!"; //if p2 high is higher in the tie situation p2 wins
             }
             else{
-                return "Tie!";
+                return "Tie!"; //if both highs are the same its a tie
             }
         }  
         return "-1";
