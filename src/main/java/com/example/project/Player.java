@@ -7,25 +7,25 @@ public class Player {
     private String[] suits = Utility.getSuits();
     private String[] ranks = Utility.getRanks();
 
-    public Player() {
+    public Player() {   //creating player object
         hand = new ArrayList<>();
         allCards = new ArrayList<>();
     }
 
-    public ArrayList<Card> getHand() {
+    public ArrayList<Card> getHand() { //returns player hand
         return hand;
     }
 
-    public ArrayList<Card> getAllCards() {
+    public ArrayList<Card> getAllCards() { //returns all of the cards
         return allCards;
     }
 
-    public void addCard(Card c) {
+    public void addCard(Card c) { //adds a card to the player current hand
         hand.add(c);
         allCards.add(c);
     }
 
-    public String playHand(ArrayList<Card> communityCards) {
+    public String playHand(ArrayList<Card> communityCards) { //returns the hand based on suit and rank frequency
         allCards = new ArrayList<>(hand);
         allCards.addAll(communityCards);
         sortCards();
@@ -91,7 +91,7 @@ public class Player {
     }
 
 
-    private boolean isStraightFlush(ArrayList<Integer> rankFrequency, ArrayList<Integer> suitFrequency) {
+    private boolean isStraightFlush(ArrayList<Integer> rankFrequency, ArrayList<Integer> suitFrequency) { //returns true if its a straight and a flush
         return isStraight() && suitFrequency.contains(5);
     }
    
@@ -109,7 +109,7 @@ public class Player {
         return false;
     }
 
-    private boolean highCardOrNothing(){
+    private boolean highCardOrNothing(){ //returns true if its only a high card or nothing at all
             Card highCard = allCards.get(allCards.size()-1);
             boolean hasHighCard =false;
             for(Card card: hand ){
@@ -122,7 +122,7 @@ public class Player {
     
 
 
-    public void sortCards() {
+    public void sortCards() { //sorts the cards in order
         for (int i = 0; i < allCards.size() - 1; i++) {
             for (int j = i + 1; j < allCards.size(); j++) {
                 if (Utility.getRankValue(allCards.get(i).getRank()) > Utility.getRankValue(allCards.get(j).getRank())) {
@@ -134,7 +134,7 @@ public class Player {
         }
     }
 
-    public ArrayList<Integer> findRankingFrequency() {
+    public ArrayList<Integer> findRankingFrequency() { //finds the frequency of a certain rank
         ArrayList<Integer> frequency = new ArrayList<>();
         for (String rank : ranks) {
             int count = 0;
@@ -148,7 +148,7 @@ public class Player {
         return frequency;
     }
 
-    public ArrayList<Integer> findSuitFrequency() {
+    public ArrayList<Integer> findSuitFrequency() { //finds the frequency of a certain suit
         ArrayList<Integer> frequency = new ArrayList<>();
         for (String suit : suits) {
             int count = 0;
