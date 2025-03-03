@@ -16,14 +16,11 @@ public class Deck{
     }
 
     public  void initializeDeck(){ //hint.. use the utility class
-        int count = 0;
         for (String suits : Utility.getSuits()){
-            count++;
             for (String ranks : Utility.getRanks()){
                 cards.add(new Card(ranks,suits));
             }
         }
-        System.out.println(count);
     }
 
     public  void shuffleDeck(){ //You can use the Collections library or another method. You do not have to create your own shuffle algorithm
